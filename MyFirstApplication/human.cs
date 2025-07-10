@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstApplication
 {
-    public class human
+    public class Humano
     {
         public String nome;
         public int idade;
@@ -15,30 +15,30 @@ namespace MyFirstApplication
         public static int numero_de_humanos; //Static permite que o valor seja imutável, ou seja, se transformarmos
                                              //       a classe em static ela não podera gerar objetos.
 
-        public human()
+        public Humano()
         {
             numero_de_humanos++;
         }
 
-        public human(string nome)
+        public Humano(string nome)
         {
             this.nome = nome;
             numero_de_humanos++;
         }
-        public human(string nome, int idade)
+        public Humano(string nome, int idade)
         {
             this.nome = nome;
             this.idade = idade;
             numero_de_humanos++;
         }
-        public human(string nome, int idade, double altura)
+        public Humano(string nome, int idade, double altura)
         {
             this.nome = nome;
             this.idade = idade;
             this.altura = altura;
             numero_de_humanos++;
         }
-        public human(string nome, int idade, double altura, double peso)
+        public Humano(string nome, int idade, double altura, double peso)
         {
             this.nome = nome;
             this.idade = idade;
@@ -47,6 +47,11 @@ namespace MyFirstApplication
             numero_de_humanos++;
         }
 
+        public override string ToString()
+        {
+            return nome;
+        }
+        
         public void Comer()
         {
             Console.WriteLine($"O/A {nome} está comendo");
@@ -66,11 +71,11 @@ namespace MyFirstApplication
             Console.WriteLine($"O peso de {nome} é {peso}");
         }
     }
-    public class aluno : human
+    public class Aluno : Humano
     {
         public bool estuda = true;
 
-        public aluno(bool estuda)
+        public Aluno(bool estuda)
         {
             this.estuda = estuda;
         }

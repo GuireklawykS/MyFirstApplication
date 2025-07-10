@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFirstApplication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,31 @@ using System.Threading.Tasks;
 
 namespace MyFirstApplication
 {
-    abstract class veiculo // Abstract = Significa que a classe está incompleta e não pode ser chamada.
+    abstract class Veiculo // Abstract = Significa que a classe está incompleta e não pode ser chamada.
     {
-        public int velocidade = 0;
+        private int velocidade = 0; // Private torna a váriavel acessível apenas com Get e Set
 
-        public void VelocidadeV()
+
+        public virtual void VelocidadeV() // virtual = torna o método sobreescrevivel.
         {
             Console.WriteLine($"Velocidade do veiculo = {velocidade}");
-
         }
+
+        public int Velocidade { get { return velocidade; } 
+        
+            set { 
+                if (velocidade > 500)
+                {
+                    velocidade = 500;
+                }
+                else
+                {
+                    velocidade = value;
+                }
+            }
+        }
+
+
     }
 
     class Carro : Veiculo
@@ -23,18 +40,41 @@ namespace MyFirstApplication
         public String modelo;
         public int rodas = 4;
 
-        public carro(String marca, String modelo, int rodas) {
+        public int Velocidade {  get; set; }
+
+        public override void VelocidadeV() // override = sobreescreve um método da classe pai.
+        {
+            Console.WriteLine($"Velocidade do carro = {Velocidade}");
+
+        }
+        public Carro(String marca, String modelo, int rodas) {
             this.marca = marca;
             this.modelo = modelo;
             this.rodas = rodas;
 
             }
-    }
+        public override string ToString() // Método com definição string pq o return é um string.
+        {
+            return $"Modelo = {modelo}\nMarca = {marca}";
+        }
 
-    class bicicleta : veiculo
+    }
+}
+
+    class Bicicleta : Veiculo
     {
         public String marca;
         public String modelo;
         public int rodas = 2;
+
+        public Bicicleta(string marca, string modelo, int rodas)
+        {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.rodas = rodas;
+        }
+        public override string ToString()
+        {
+            return $"Marca: {marca}\nModelo: {modelo}";
+        }
     }
-}
