@@ -17,7 +17,7 @@ namespace MyFirstApplication
         }
     }
 
-    class carro : veiculo
+    class Carro : Veiculo
     {
         public String marca;
         public String modelo;
