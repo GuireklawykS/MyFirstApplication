@@ -80,12 +80,14 @@ namespace MyFirstConsoleApp
 
                         Veiculo[] veiculos = { carro1, bicicleta1 };
 
-                        foreach (Veiculo veiculo in veiculos)
-                        {
-                            Console.WriteLine(veiculo);
-                        }
+                        Console.WriteLine(carro1);
 
-                        carro1.Velocidade = 200;
+                        //foreach (Veiculo veiculo in veiculos)
+                        //{
+                        //    Console.WriteLine(veiculo);
+                        //}
+
+                        carro1.Velocidade = 2000;
                         carro1.VelocidadeV();
                         /*
                         Console.WriteLine($"{carro1}");
@@ -157,6 +159,30 @@ namespace MyFirstConsoleApp
                         Thread.Sleep(2000);
                         continue;
 
+                    case "7":
+
+                        String nome_planeta = Planetas.Terra.ToString();
+                        int raio_planeta = (int)RaioPlanetas.Terra;
+
+                        Console.WriteLine($"Posição do Planeta: {(int)Planetas.Terra}");
+                        Console.WriteLine($"Planeta: {nome_planeta}");
+                        Console.WriteLine($"Raio do Planeta: {raio_planeta}");
+
+                        Thread.Sleep(2000);
+                        continue;
+
+                    case "8":
+
+                        String[] palavras = { "Cabeça", "Ombro", "Joelho" };
+                        int[] palavras2 = { 1, 2, 3 };
+                        double[] palavras3 = { 4.1, 3.2, 2.7 };
+
+                        Display.DisplayElements(palavras);
+                        Display.DisplayElements(palavras2);
+                        Display.DisplayElements(palavras3);
+
+                        Thread.Sleep(2000);
+                        continue;
                     default:
                         Console.WriteLine("Opção inválida");
                         Thread.Sleep(2000);

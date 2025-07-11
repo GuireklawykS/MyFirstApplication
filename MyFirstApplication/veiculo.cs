@@ -14,13 +14,16 @@ namespace MyFirstApplication
 
         public virtual void VelocidadeV() // virtual = torna o método sobreescrevivel.
         {
-            Console.WriteLine($"Velocidade do veiculo = {velocidade}");
+            Console.WriteLine($"Velocidade do veiculo = {Velocidade}");
         }
 
-        public int Velocidade { get { return velocidade; } 
+        
+
+        public int Velocidade { 
+            get { return velocidade; } 
         
             set { 
-                if (velocidade > 500)
+                if (value > 500)
                 {
                     velocidade = 500;
                 }
@@ -40,22 +43,23 @@ namespace MyFirstApplication
         public String modelo;
         public int rodas = 4;
 
-        public int Velocidade {  get; set; }
+
+        public String Marca {  get; set; }
 
         public override void VelocidadeV() // override = sobreescreve um método da classe pai.
         {
             Console.WriteLine($"Velocidade do carro = {Velocidade}");
 
         }
-        public Carro(String marca, String modelo, int rodas) {
-            this.marca = marca;
+        public Carro(String Marca, String modelo, int rodas) {
+            Marca = Marca;
             this.modelo = modelo;
             this.rodas = rodas;
 
             }
         public override string ToString() // Método com definição string pq o return é um string.
         {
-            return $"Modelo = {modelo}\nMarca = {marca}";
+            return $"Modelo = {modelo}\nMarca = {Marca}";
         }
 
     }
